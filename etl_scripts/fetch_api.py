@@ -2,6 +2,8 @@ import requests
 import json
 import os
 from dotenv import load_dotenv
+import logging
+
 
 load_dotenv()
 
@@ -29,5 +31,8 @@ def fetch_api_data(**context):
     output_file = f"{OUTPUT_DIR}/fetch_data_{execution_date}.json"
     with open(output_file, "w") as f:
         json.dump(data, f, indent=2)
+
+    logger = logging.getLogger(__name__)
+    logger.info("Fetched data: %s", data)
 
     print(f"Data saved to {output_file}")
