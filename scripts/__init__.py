@@ -1,1 +1,0 @@
-from scripts.fetch_api import fetch_api_data

@@ -6,6 +6,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 def fetch_api_data(**context):
+    execution_date = context["logical_date"]
+    print(execution_date)
+
     API_URL = os.environ.get("API")
 
     OUTPUT_DIR = "data"
@@ -16,7 +19,7 @@ def fetch_api_data(**context):
 
     execution_date = context["ds"]  # YYYY-MM-DD
 
-    response = requests.get(f"{API_URL}?{KEY}", timeout=30)
+    response = requests.get(f"{API_URL}?apiKey={KEY}", timeout=30)
     response.raise_for_status()
 
     data = response.json()
