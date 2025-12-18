@@ -2,7 +2,7 @@ from airflow import DAG # type: ignore
 from datetime import datetime
 from airflow.operators.python import PythonOperator # type: ignore
 from datetime import datetime, timedelta
-from scripts import fetch_api_data
+from scripts.fetch_api import fetch_api_data
 
 
 default_args = {
